@@ -591,7 +591,7 @@ function selectProfile(username) {
     recommendedState.movies = [];
     recommendedState.shorts = [];
 
-    audioSynthInstance.playTaDum();
+    //audioSynthInstance.playTaDum();
 
     // Transition view
     const profileView = document.getElementById('view-profiles');
