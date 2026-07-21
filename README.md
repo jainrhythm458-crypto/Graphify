@@ -1,12 +1,10 @@
-# 🎬 Graphify
+#  Graphify
 
 > A Netflix-inspired collaborative recommendation engine simulator built using graph theory and the Jaccard Similarity algorithm.
 
-## 🌐 Live Demo
 
-Coming Soon (GitHub Pages)
 
-## 📖 Overview
+##  Overview
 
 Graphify is an interactive visualization of how recommendation systems work.
 
@@ -16,22 +14,21 @@ Users can choose a profile, browse watched content, and watch the recommendation
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🎥 Netflix-inspired modern UI
-- 👤 Multiple user profiles
-- 📺 Movies & Shorts recommendation modes
-- 🧠 Jaccard Similarity based collaborative filtering
-- 🌐 Interactive force-directed graph visualization
-- ⚡ Real-time recommendation pipeline animation
-- 🎯 Dynamic similarity score calculation
-- 📊 Mathematical explanation panel
-- 🔊 Sound effects for interactions
-- 🖱️ Draggable graph nodes
+-  Netflix-inspired modern UI
+-  Multiple user profiles
+-  Movies & Shorts recommendation modes
+-  Jaccard Similarity based collaborative filtering
+-  Interactive force-directed graph visualization
+-  Real-time recommendation pipeline animation
+-  Dynamic similarity score calculation
+- Mathematical explanation panel
+-  Draggable graph nodes
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - HTML5
 - CSS3
@@ -43,7 +40,7 @@ Users can choose a profile, browse watched content, and watch the recommendation
 
 ---
 
-## 🧠 How the Recommendation Works
+##  How the Recommendation Works
 
 1. User selects a profile.
 2. The watched titles are converted into a set.
@@ -59,7 +56,7 @@ Similarity = |Intersection| / |Union|
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 Clone the repository
 
@@ -77,7 +74,7 @@ No additional installation is required.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Graphify
@@ -90,7 +87,7 @@ Graphify
 
 ---
 
-## 🎯 Future Improvements
+##  Future Improvements
 
 - Content-based filtering
 - Hybrid recommendation system
@@ -103,7 +100,7 @@ Graphify
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Rhythm Jain**
 
@@ -114,6 +111,6 @@ https://github.com/jainrhythm458-crypto
 
 ---
 
-## ⭐ Support
+##  Support
 
 If you found this project interesting, consider giving it a ⭐ on GitHub.
