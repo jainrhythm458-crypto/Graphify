@@ -591,7 +591,7 @@ function selectProfile(username) {
     recommendedState.movies = [];
     recommendedState.shorts = [];
 
-    //audioSynthInstance.playTaDum();
+    audioSynthInstance.playTick();
 
     // Transition view
     const profileView = document.getElementById('view-profiles');
@@ -779,7 +779,7 @@ function advancePresentationStage() {
     if (simulationStage === 3) {
         // Stage 4: Fade out loader and show graph particles
         document.querySelector('.hud-center').classList.remove('active');
-        audioSynthInstance.playTaDum();
+        audioSynthInstance.playTick();
         simulationStage = 4;
         
         // Dynamic sidebars fade in
@@ -853,7 +853,7 @@ function triggerSimulatedTallyMetrics() {
             topRow.className = 'user-similarity-row match';
             topRow.querySelector('.sim-status-label').innerText = 'Best Match';
 
-            audioSynthInstance.playTaDum();
+            audioSynthInstance.playTick();
             simulationStage = 6; // Jaccard calculations visual complete
 
             // Setup Math explanations
@@ -914,7 +914,7 @@ function publishRecommendationsToHomepage() {
 }
 
 function triggerVisualCrossCheckMatrix() {
-    audioSynthInstance.playTaDum();
+    audioSynthInstance.playTick();
     const modal = document.getElementById('split-screen-modal');
     modal.classList.add('active');
 
