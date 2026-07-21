@@ -90,7 +90,7 @@ const DEFAULT_MOVIES_LIST = ['Avengers', 'Iron Man', 'Spider-Man'];
 const DEFAULT_SHORTS_LIST = ['Python Pro Tips', 'CSS Secrets', 'Deep Space Rover'];
 
 let activeMode = 'movies'; // 'movies' or 'shorts'
-let soundEnabled = true;
+let soundEnabled = false;
 let activeUser = null;
 let watchedState = {
     movies: [...DEFAULT_MOVIES_LIST],
