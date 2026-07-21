@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphify | Symmetric Recommendation Engine Simulator</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- 1. PROFILE SELECTION PAGE -->
+    <!-- ============================================== -->
+    <div id="view-profiles" class="view-panel active">
+        <div class="profiles-container">
+            <h1 class="profile-main-title">Who's watching today?</h1>
+            <div class="profile-cards-grid">
+                
+                <div class="profile-card" data-user="Rahul">
+                    <div class="avatar-circle avatar-1">R</div>
+                    <div class="profile-name">Rahul</div>
+                </div>
+
+                <div class="profile-card" data-user="Sneha">
+                    <div class="avatar-circle avatar-2">S</div>
+                    <div class="profile-name">Sneha</div>
+                </div>
+
+                <div class="profile-card" data-user="Aman">
+                    <div class="avatar-circle avatar-3">A</div>
+                    <div class="profile-name">Aman</div>
+                </div>
+
+                <div class="profile-card" data-user="Priya">
+                    <div class="avatar-circle avatar-4">P</div>
+                    <div class="profile-name">Priya</div>
+                </div>
+
+            </div>
+            <p class="profile-subtitle">Select a student profile to boot up the collaborative recommendation simulator.</p>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 2. STREAMING HOMEPAGE (MOVIES & SHORTS) -->
+    <!-- ============================================== -->
+    <div id="view-homepage" class="view-panel">
+        
+        <!-- Navigation bar -->
+        <nav class="netflix-nav">
+            <div class="nav-branding-group">
+                <span class="nav-brand-logo">GRAPHIFY</span>
+                <span class="nav-brand-slash">/</span>
+                <span class="nav-brand-title">Recommendation Simulator</span>
+            </div>
+
+            <!-- Symmetric Tab Switchers -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="movies" onclick="switchCategoryTab('movies')">Movies Feed</button>
+                <button class="tab-btn" data-tab="shorts" onclick="switchCategoryTab('shorts')">Shorts Feed</button>
+            </div>
+
+            <div class="nav-right-controls">
+                <button id="sound-toggle" class="badge-btn">🎵 Sound: ON</button>
+                
+                <!-- Quick viewer switcher -->
+                <div class="current-profile-indicator" onclick="document.getElementById('view-profiles').classList.add('active'); document.getElementById('view-homepage').classList.remove('active');">
+                    <div class="mini-avatar"></div>
+                    <span>User</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Homepage scrollable body -->
+        <div class="homepage-content">
+            
+            <!-- Hero banner highlight card -->
+            <div class="hero-banner" id="hero-banner-main">
+                <div class="hero-left-col">
+                    <span class="hero-badge">Featured Content</span>
+                    <h1 class="hero-title" id="hero-title-ref">Avengers: Endgame</h1>
+                    <p class="hero-desc" id="hero-desc-ref">Earth's mightiest heroes assemble to repair the cosmos in a cinematic blockbuster.</p>
+                    <div style="display:flex; gap:0.6rem">
+                        <button class="primary-play-btn" onclick="audioSynthInstance.playTaDum();">▶ Play Now</button>
+                        <button class="secondary-info-btn">ⓘ Info</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scrolling rows grid -->
+            <div class="streaming-rows">
+
+                <!-- Row 1 -->
+                <div class="movie-row">
+                    <h2 class="movie-row-title">Active Row 1</h2>
+                    <div class="movie-cards-container" id="row-action-container"></div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="movie-row">
+                    <h2 class="movie-row-title">Active Row 2</h2>
+                    <div class="movie-cards-container" id="row-sci-fi-container"></div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="movie-row">
+                    <h2 class="movie-row-title">Active Row 3</h2>
+                    <div class="movie-cards-container" id="row-drama-container"></div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="movie-row">
+                    <h2 class="movie-row-title">Active Row 4</h2>
+                    <div class="movie-cards-container" id="row-comedy-container"></div>
+                </div>
+
+            </div>
+
+            <!-- Sticky Recommend Button section -->
+            <div class="recommendation-bar-dock">
+                <div class="dock-inner">
+                    <div class="dock-text">
+                        <h3>Run Collaborative Recommendation Engine</h3>
+                        <p>The AI will extract overlap metrics to suggest matching media categories.</p>
+                    </div>
+                    <button class="recommend-action-btn glow-btn" onclick="triggerRecommendationPipeline()">
+                        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-4 0H7a6 6 0 0 1 12 0c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        Ask AI to Recommend
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 3. INTERACTIVE COLLABORATIVE GRAPH OVERLAY -->
+    <!-- ============================================== -->
+    <div id="visualization-overlay" class="viz-overlay">
+        
+        <!-- Left Side: Algorithmic Steps Check panel -->
+        <div class="hud-sidebar-left glass-hud">
+            <h2>Recommendation Pipeline</h2>
+            <p style="font-size:0.78rem; opacity:0.6; margin-bottom:1rem">Watch the collaborative filtering steps trace through the variables.</p>
+            
+            <div class="algo-steps-list">
+                <!-- Populated dynamically -->
+            </div>
+
+            <div class="control-hints-panel">
+                <span class="hint-badge">Tip</span>
+                <p>Nodes can be grabbed and dragged to test the live spring physics.</p>
+            </div>
+        </div>
+
+        <!-- Center AI Calculation Loader -->
+        <div class="hud-center">
+            <div class="hud-spinner-ring"></div>
+            <div class="hud-ai-status">AI is calculating overlaps...</div>
+            <div class="hud-progress-track">
+                <div class="hud-progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Right Side: Taste Similarity Scores panel -->
+        <div class="hud-sidebar-right glass-hud">
+            <h2>Taste Similarity</h2>
+            <p style="font-size:0.78rem; opacity:0.6; margin-bottom:1rem">Jaccard index weights against all profile users in the network.</p>
+
+            <div class="similarity-runner">
+                <!-- Populated dynamically -->
+            </div>
+
+            <button class="math-toggle-btn" onclick="toggleMathematicsPanel()">📊 Show Mathematical Formula</button>
+        </div>
+
+        <!-- Bottom Controls overlays -->
+        <div class="hud-bottom-actions">
+            <button class="exit-btn-ref" onclick="exitGraphVizToHome()">✕ Close Overlay</button>
+            <button class="publish-btn-ref" onclick="publishRecommendationsToHomepage()">Publish Recommendations &rarr;</button>
+        </div>
+
+        <!-- Graph canvas -->
+        <canvas id="graph-canvas"></canvas>
+
+        <!-- Hidden mathematics explanations -->
+        <div class="math-explanation-sidebar">
+            <div class="math-explanation-header">
+                <h3>Jaccard Similarity Index</h3>
+                <button class="close-math-btn" onclick="toggleMathematicsPanel()">✕</button>
+            </div>
+            <div class="math-box-body">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 4. SPLIT-SCREEN REVELATION CHECKLIST MODAL -->
+    <!-- ============================================== -->
+    <div id="split-screen-modal" class="split-modal-container">
+        <div class="split-modal-box">
+            
+            <div class="split-modal-header">
+                <h2>Collaborative Filtering Cross-Check</h2>
+                <button class="close-split-x" onclick="closeSplitScreenModal()">✕</button>
+            </div>
+
+            <div class="split-cols-wrapper">
+                
+                <div class="split-user-col current-user-side">
+                    <!-- Target user watched list -->
+                </div>
+
+                <div class="split-user-col closest-user-side">
+                    <!-- Closest peer watched list -->
+                </div>
+
+            </div>
+
+            <div class="split-modal-footer">
+                <button class="modal-dismiss-btn" onclick="closeSplitScreenModal()">Let's Stream! 🎬</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
